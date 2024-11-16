@@ -38,6 +38,10 @@
   color: rgba(33, 33, 33, 0.7);
 }
 
+.profile__edit-btn-text:hover {
+  color: rgba(33, 33, 33, 1);
+}
+
 .button__pencil-svg {
   margin-right: 8px;
 }
@@ -53,7 +57,11 @@
   height: 52px;
   border-radius: 8px;
   align-self: end;
-  background: #212121;
+  background: rgba(33, 33, 33, 1);
   color: #fcf5e5;
   padding: 18px 32px;
+}
+
+.profile__add-btn:hover {
+  background: rgba(33, 33, 33, 0.8);
 }
