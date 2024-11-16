@@ -1,0 +1,13 @@
+/* BACKGROUND color is FCF5E5 */
+
+.page {
+  background-color: #fcf5e5;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.page__section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
