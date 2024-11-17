@@ -3,6 +3,11 @@
   max-width: 1440px;
 }
 
+.post {
+  display: flex;
+  flex-direction: column;
+}
+
 .post__image {
   aspect-ratio: 1 / 1;
   max-width: 413px;
@@ -15,6 +20,36 @@
   max-width: 1280px;
   margin: 20px 80px;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 413px));
   gap: 20px;
+}
+
+.post__caption {
+  height: 24px;
+  margin: 12px 0 0;
+}
+
+.post__caption_thorens {
+  max-width: 119px;
+}
+
+.post__caption_terrace {
+  max-width: 190px;
+}
+
+.post__caption_cafe {
+  max-width: 162px;
+}
+
+.post__caption_bridge {
+  max-width: 353px;
+}
+
+.post__caption_tunnel {
+  max-width: 257px;
+}
+
+.post__caption_house {
+  max-width: 163px;
 }
