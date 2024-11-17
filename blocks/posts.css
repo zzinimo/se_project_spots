@@ -1,0 +1,20 @@
+.posts {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.post__image {
+  aspect-ratio: 1 / 1;
+  max-width: 413px;
+  max-height: 413px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.post__grid {
+  max-width: 1280px;
+  margin: 20px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 413px));
+  gap: 20px;
+}
