@@ -8,6 +8,16 @@
   flex-direction: column;
 }
 
+.post__grid {
+  max-width: 1280px;
+  padding: 20px 80px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 413px));
+  gap: 40px 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
 .post__image {
   aspect-ratio: 1 / 1;
   max-width: 413px;
@@ -16,18 +26,13 @@
   border-radius: 10px;
 }
 
-.post__grid {
-  max-width: 1280px;
-  margin: 20px 80px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 413px));
-  gap: 20px;
-}
-
 .post__caption {
   height: 24px;
   margin: 12px 0 0;
+  font-family: "Poppins-italic", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 20px;
 }
 
 .post__caption_thorens {
@@ -43,7 +48,10 @@
 }
 
 .post__caption_bridge {
-  max-width: 353px;
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post__caption_tunnel {
@@ -52,4 +60,24 @@
 
 .post__caption_house {
   max-width: 163px;
+}
+
+.post__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 413px;
+}
+
+.post__like-button {
+  background-image: url("../images/Like\ Icon.svg");
+  width: 23px;
+  height: 20px;
+  border: none;
+  opacity: 40%;
+  margin: 12px 0 0;
+}
+
+.post__like-button:hover {
+  opacity: 1;
 }
