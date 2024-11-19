@@ -16,4 +16,4 @@ Figma was used for the website design template. HTML was used to structure the w
 
 This wepage is deplayed to GitHub Pages
 
-Deployment link:
+Deployment link: https://zzinimo.github.io/se_project_spots/
