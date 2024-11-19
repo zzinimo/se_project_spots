@@ -8,6 +8,9 @@
 .profile__avatar {
   margin-right: 20px;
   border-radius: 10px;
+  height: 190px;
+  width: 190px;
+  object-fit: contain;
 }
 
 .profile__column {
@@ -17,19 +20,34 @@
 
 .profile__name {
   margin: 0 0 12px;
-  font-size: 2rem;
-  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-family: "Poppins-medium", sans-serif;
   font-weight: 500;
   max-width: 420px;
   max-height: 32px;
+  font-size: 32px;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-width: 420px;
 }
 
 .profile__description {
   margin: 0;
-  font-size: 1rem;
   color: rgba(33, 33, 33, 0.7);
-  max-width: 97px;
+  max-width: 100%;
   max-height: 16px;
+  font-size: 16px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__edit-btn {
@@ -41,10 +59,11 @@
 
 .profile__edit-btn-text {
   color: rgba(33, 33, 33, 0.7);
-  max-width: 107.34px;
   max-height: 16px;
-  font-family: "Poppins", sans-serif;
-  font-weight: thin;
+  line-height: 16px;
+  font-size: 16px;
+  font-family: "Poppins-medium", sans-serif;
+  font-weight: 500;
 }
 
 .profile__edit-btn-text:hover {
@@ -73,4 +92,51 @@
 
 .profile__add-btn:hover {
   background: rgba(33, 33, 33, 0.8);
+}
+
+.profile__new-post-btn-text {
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 288px;
+  }
+
+  .profile__avatar {
+    margin-right: 0;
+    height: 80px;
+    width: 80px;
+    margin-bottom: 12px;
+  }
+
+  .profile__name {
+    margin-bottom: 6px;
+    font-size: 20px;
+    max-width: 288px;
+  }
+
+  .profile__description {
+    margin-bottom: 32px;
+    max-width: 288px;
+  }
+
+  .profile__edit-btn {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .profile__add-btn {
+    margin: 0 auto;
+    width: 100%;
+  }
 }

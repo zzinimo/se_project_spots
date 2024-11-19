@@ -29,10 +29,15 @@
 .post__caption {
   height: 24px;
   margin: 12px 0 0;
-  font-family: "Poppins-italic", sans-serif;
-  font-weight: 200;
+  font-family: "Poppins-medium", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
   font-style: normal;
   font-size: 20px;
+}
+.post__caption_short-text {
+  display: none;
 }
 
 .post__caption_thorens {
@@ -48,7 +53,7 @@
 }
 
 .post__caption_bridge {
-  max-width: 320px;
+  max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -80,4 +85,32 @@
 
 .post__like-button:hover {
   opacity: 1;
+}
+
+@media screen and (max-width: 627px) {
+  /* .grid-template-columns: repeat(auto-fit, 288px); */
+
+  .post__grid {
+    gap: 20px;
+    grid-template-columns: repeat, (auto-fit, 288px);
+  }
+
+  .post__image {
+    max-width: 288px;
+    max-height: 288px;
+  }
+
+  .post__content {
+    max-width: 288px;
+  }
+
+  .post__caption {
+    font-size: 16px;
+    line-height: 1;
+    display: none;
+  }
+
+  .post__caption_short-text {
+    display: inline-block;
+  }
 }

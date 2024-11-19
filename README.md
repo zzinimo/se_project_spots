@@ -1,21 +1,19 @@
-# Project 3: Spots
+# Spots
 
-### Overview  
+Describe the project and functionality
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+## This webiste is designed to allow users to share experiences and places that they visit on a day to day basis, and to allow feedback on what other people think.
+
+## Description:
+
+This is a photo sharing website that allows users share cool and unique experiences and places that are visited on a day to day basis.
+
+## Tech Stack
+
+Figma was used for the website design template. HTML was used to structure the webiste and CSS was used to for styling purposes.
+
+## Deployment
+
+This wepage is deplayed to GitHub Pages
+
+Deployment link:
