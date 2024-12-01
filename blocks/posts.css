@@ -23,8 +23,8 @@
   border-radius: 8px;
 }
 
-.posts__caption_ellipsis {
-  margin: 12px 0 0;
+.posts__caption {
+  margin: 0;
   font-family: "Poppins-medium", sans-serif;
   font-weight: 500;
   font-size: 20px;
