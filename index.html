@@ -28,107 +28,100 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
-            <button class="profile__edit-btn">
+            <button class="profile__edit-btn" type="button">
               <img
                 src="./images/pencil.svg.svg"
                 alt="Pencil icon"
-                class="button__pencil-svg"
-              /><span class="profile__edit-btn-text">Edit Profile</span>
+                class="profile__button_pencil-svg"
+              /><span class="profile__edit-btn-text" type="button"
+                >Edit Profile</span
+              >
             </button>
           </div>
-          <button class="profile__add-btn">
+          <button class="profile__add-btn" type="button">
             <img
               src="./images/plus.svg.png"
               alt="Pencil icon"
-              class="button__plus-svg"
-            /><span class="profile__new-post-btn-text">New Post</span>
+              class="profile__button_plus-svg"
+            /><span class="profile__new-post-btn-text" type="button"
+              >New Post</span
+            >
           </button>
         </section>
 
-        <section class="posts">
-          <div class="post__grid">
-            <div class="post">
-              <img
-                src="images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Val Thorens"
-                class="post__image"
-              />
-              <div class="post__content">
-                <p class="post__caption post__caption_thorens">Val Thorens</p>
-                <span class="post__caption_short-text">Val Thorens</span>
-                <button type="button" class="post__like-button"></button>
-              </div>
+        <section class="posts page__section">
+          <div class="posts__card">
+            <img
+              src="images/1-photo-by-moritz-feldmann-from-pexels.jpg"
+              class="posts__image"
+              alt="Val Thorens"
+            />
+            <div class="posts__content">
+              <p class="posts__caption">Val Thorens</p>
+              <button
+                type="button"
+                class="posts__like-button"
+                type="button"
+              ></button>
             </div>
+          </div>
 
-            <div class="post">
-              <img
-                src="images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="Restaurant Terrace"
-                class="post__image"
-              />
-              <div class="post__content">
-                <p class="post__caption post__caption_terrace full-text">
-                  Restaurant terrace
-                </p>
-                <span class="post__caption_short-text">Val Thorens</span>
-                <button type="button" class="post__like-button"></button>
-              </div>
+          <div class="posts__card">
+            <img
+              src="images/2-photo-by-ceiline-from-pexels.jpg"
+              alt="Restaurant Terrace"
+              class="posts__image"
+            />
+            <div class="posts__content">
+              <p class="posts__caption">Restaurant terrace</p>
+              <button type="button" class="posts__like-button"></button>
             </div>
-            <div class="post">
-              <img
-                src="images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="An Outdoor Cafe"
-                class="post__image"
-              />
-              <div class="post__content">
-                <p class="post__caption post__caption_cafe full-text">
-                  An outdoor cafe
-                </p>
-                <span class="post__caption_short-text">Val Thorens</span>
-                <button type="button" class="post__like-button"></button>
-              </div>
+          </div>
+          <div class="posts__card">
+            <img
+              src="images/3-photo-by-tubanur-dogan-from-pexels.jpg"
+              alt="An Outdoor Cafe"
+              class="posts__image"
+            />
+            <div class="posts__content">
+              <p class="posts__caption">An outdoor cafe</p>
+              <button type="button" class="posts__like-button"></button>
             </div>
-            <div class="post">
-              <img
-                src="images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="Bridge Photo"
-                class="post__image"
-              />
-              <div class="post__content">
-                <p class="post__caption post__caption_bridge full-text">
-                  A very long bridge,over the forest with trees underneath
-                </p>
-                <span class="post__caption_short-text">Val Thorens</span>
-                <button type="button" class="post__like-button"></button>
-              </div>
+          </div>
+          <div class="posts__card">
+            <img
+              src="images/4-photo-by-maurice-laschet-from-pexels.jpg"
+              alt="Bridge Photo"
+              class="posts__image"
+            />
+            <div class="posts__content">
+              <p class="posts__caption posts__caption_ellipsis">
+                A very long bridge,over the forest with trees underneath
+              </p>
+              <button type="button" class="posts__like-button"></button>
             </div>
-            <div class="post">
-              <img
-                src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="Tullel with Morning Light"
-                class="post__image"
-              />
-              <div class="post__content">
-                <p class="post__caption post__caption_tunnel full-text">
-                  Tunnel with morning light
-                </p>
-                <span class="post__caption_short-text">Val Thorens</span>
-                <button type="button" class="post__like-button"></button>
-              </div>
+          </div>
+
+          <div class="posts__card">
+            <img
+              src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+              alt="Tullel with Morning Light"
+              class="posts__image"
+            />
+            <div class="posts__content">
+              <p class="posts__caption">Tunnel with morning light</p>
+              <button type="button" class="posts__like-button"></button>
             </div>
-            <div class="post">
-              <img
-                src="images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Mountain House"
-                class="post__image"
-              />
-              <div class="post__content">
-                <p class="post__caption post__caption_house full-text">
-                  Mountain house
-                </p>
-                <span class="post__caption_short-text">Val Thorens</span>
-                <button type="button" class="post__like-button"></button>
-              </div>
+          </div>
+          <div class="posts__card">
+            <img
+              src="images/6-photo-by-moritz-feldmann-from-pexels.jpg"
+              alt="Mountain House"
+              class="posts__image"
+            />
+            <div class="posts__content">
+              <p class="posts__caption">Mountain house</p>
+              <button type="button" class="posts__like-button"></button>
             </div>
           </div>
         </section>

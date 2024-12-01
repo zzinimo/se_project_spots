@@ -1,80 +1,48 @@
 .posts {
   margin: 0 auto;
   max-width: 1440px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 413px);
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
 }
 
-.post {
+.posts__card {
   display: flex;
   flex-direction: column;
+  max-width: 413px;
+  max-height: 445px;
 }
 
-.post__grid {
-  max-width: 1280px;
-  padding: 20px 80px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 413px));
-  gap: 40px 20px;
-  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
-}
-
-.post__image {
+.posts__image {
   aspect-ratio: 1 / 1;
   max-width: 413px;
   max-height: 413px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.post__caption {
-  height: 24px;
+.posts__caption_ellipsis {
   margin: 12px 0 0;
   font-family: "Poppins-medium", sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   font-style: normal;
-  font-size: 20px;
-}
-.post__caption_short-text {
-  display: none;
-}
-
-.post__caption_thorens {
-  max-width: 119px;
-}
-
-.post__caption_terrace {
-  max-width: 190px;
-}
-
-.post__caption_cafe {
-  max-width: 162px;
-}
-
-.post__caption_bridge {
-  max-width: 350px;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 355px;
 }
 
-.post__caption_tunnel {
-  max-width: 257px;
-}
-
-.post__caption_house {
-  max-width: 163px;
-}
-
-.post__content {
+.posts__content {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  max-width: 413px;
 }
 
-.post__like-button {
+.posts__like-button {
   background-image: url("../images/Like\ Icon.svg");
   background-repeat: no-repeat;
   width: 23px;
@@ -82,36 +50,50 @@
   border: none;
   opacity: 40%;
   margin: 12px 0 0;
+  background-color: transparent;
 }
 
 .post__like-button:hover {
   opacity: 1;
 }
 
-@media screen and (max-width: 627px) {
-  /* .grid-template-columns: repeat(auto-fit, 288px); */
-
-  .post__grid {
+@media screen and (max-width: 630px) {
+  .posts {
     gap: 20px;
-    grid-template-columns: repeat, (auto-fit, 288px);
+    grid-template-columns: repeat(auto-fit, 288px);
+    margin: ;
   }
 
-  .post__image {
+  .posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .posts__image {
     max-width: 288px;
     max-height: 288px;
   }
 
-  .post__content {
+  .posts__content {
     max-width: 288px;
   }
 
-  .post__caption {
+  .posts__caption {
     font-size: 16px;
     line-height: 1;
-    display: none;
   }
+}
 
-  .post__caption_short-text {
-    display: inline-block;
+@media screen and (max-width: 880px) {
+  .posts {
+    grid-template-columns: 413px;
+  }
+}
+
+@media screen and (max-width: 1320px) {
+  .posts {
+    grid-template-columns: repeat(2, minmax(1fr 413px));
+    justify-content: center;
   }
 }
