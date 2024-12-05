@@ -12,7 +12,6 @@
   display: flex;
   flex-direction: column;
   max-width: 413px;
-  max-height: 445px;
 }
 
 .posts__image {
@@ -34,6 +33,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 355px;
+  color: #212121;
 }
 
 .posts__content {
@@ -43,12 +43,11 @@
 }
 
 .posts__like-button {
-  background-image: url("../images/Like\ Icon.svg");
+  background-image: url("../images/Like\ Icon\ \(1\).svg");
   background-repeat: no-repeat;
   width: 23px;
   height: 20px;
   border: none;
-  opacity: 40%;
   margin: 12px 0 0;
   background-color: transparent;
 }
@@ -57,11 +56,23 @@
   opacity: 1;
 }
 
+@media screen and (max-width: 1320px) {
+  .posts {
+    grid-template-columns: repeat(2, minmax(1fr 413px));
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .posts {
+    grid-template-columns: 413px;
+  }
+}
+
 @media screen and (max-width: 630px) {
   .posts {
     gap: 20px;
     grid-template-columns: repeat(auto-fit, 288px);
-    margin: ;
   }
 
   .posts {
@@ -82,18 +93,5 @@
   .posts__caption {
     font-size: 16px;
     line-height: 1;
-  }
-}
-
-@media screen and (max-width: 880px) {
-  .posts {
-    grid-template-columns: 413px;
-  }
-}
-
-@media screen and (max-width: 1320px) {
-  .posts {
-    grid-template-columns: repeat(2, minmax(1fr 413px));
-    justify-content: center;
   }
 }
