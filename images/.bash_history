@@ -17,7 +17,7 @@ code .
 pwd
 code
 code .
-clear 
+clear
 pwd
 pwd
 ~
@@ -47,7 +47,7 @@ cd index.html/
 ls
 ls
 cd ~
-pwd 
+pwd
 ls
 cd AppData/
 ls

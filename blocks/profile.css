@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
-  padding: 34px 20px 20px;
+  padding: 34px 0px 20px;
 }
 
 .profile__avatar {
@@ -95,6 +95,7 @@
 
 .profile__add-btn:hover {
   background: rgba(33, 33, 33, 0.8);
+  cursor: pointer;
 }
 
 .profile__new-post-btn-text {
@@ -112,7 +113,7 @@
     max-width: 288px;
     align-items: center;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
   }
 
   .profile__avatar {
