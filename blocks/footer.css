@@ -1,7 +1,6 @@
 .footer {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 60px 0px;
   margin: 40px auto 0;
   border-top: 1px rgba(33, 33, 33, 0.4) solid;
@@ -17,4 +16,11 @@
   line-height: 16px;
   color: rgba(33, 33, 33, 0.7);
   max-width: 1280px;
+}
+
+@media screen and (max-width: 627px) {
+  .footer {
+    max-width: 288px;
+    margin: 20px auto 0;
+  }
 }
