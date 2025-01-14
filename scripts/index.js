@@ -51,28 +51,29 @@ const postsCardList = document.querySelector(".posts");
 
 function getCardElement(data) {
   console.log(data);
-  const cardElement = cardTemplate.content
-    .querySelector(".posts__card")
+  const cardElement = cardTemplate.content //What happens if I do not include content?
+    .querySelector(".posts__card") // Do I need to do this step, or can I ".cloneNode" cardTemplate?
     .cloneNode(true);
 
   const cardNameEl = cardElement.querySelector(".posts__caption");
   //select image element
-  const postsImage = (cardElement.querySelector("posts__image").src =
-    data.link);
+
+  const postsImage = cardElement.querySelector(".posts__image");
 
   cardNameEl.textContent = data.name;
+  postsImage.src = data.link;
   //assign values to image src and alt attributes
 
-  //????????? How did we link data to the object array up top?
+  //????????? How did we link "data" to the object array called initial cards towards top?
 
-  return cardElement;
+  return cardElement; //what does this do for cards?
 }
 
 for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
+  const cardElement = getCardElement(initialCards[i]); // We have already declared cardElement in the getCardElement function no?
   postsCardList.prepend(cardElement);
 }
-//is this how??
+//is this how?? ^
 
 //function for making modal visible, making input value change with profile name
 function openModal() {
