@@ -46,101 +46,44 @@
         </section>
 
         <section class="posts page__section">
-          <div class="posts__card">
-            <img
-              src="images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-              class="posts__image"
-              alt="Val Thorens"
-            />
-            <div class="posts__content">
-              <h2 class="posts__caption">Val Thorens</h2>
-              <button type="button" class="posts__like-button"></button>
+          <template id="card-template">
+            <!--cardTemplate -->
+            <div class="posts__card">
+              <!--postsCardList -->
+              <img class="posts__image" alt="" />
+              <div class="posts__content">
+                <h2 class="posts__caption"></h2>
+                <!--cardNameEl -->
+                <button type="button" class="posts__like-button"></button>
+              </div>
             </div>
-          </div>
-
-          <div class="posts__card">
-            <img
-              src="images/2-photo-by-ceiline-from-pexels.jpg"
-              alt="Restaurant Terrace"
-              class="posts__image"
-            />
-            <div class="posts__content">
-              <h2 class="posts__caption">Restaurant terrace</h2>
-              <button type="button" class="posts__like-button"></button>
-            </div>
-          </div>
-          <div class="posts__card">
-            <img
-              src="images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-              alt="An Outdoor Cafe"
-              class="posts__image"
-            />
-            <div class="posts__content">
-              <h2 class="posts__caption">An outdoor cafe</h2>
-              <button type="button" class="posts__like-button"></button>
-            </div>
-          </div>
-          <div class="posts__card">
-            <img
-              src="images/4-photo-by-maurice-laschet-from-pexels.jpg"
-              alt="Bridge Photo"
-              class="posts__image"
-            />
-            <div class="posts__content">
-              <h2 class="posts__caption posts__caption_ellipsis">
-                A very long bridge,over the forest with trees underneath
-              </h2>
-              <button type="button" class="posts__like-button"></button>
-            </div>
-          </div>
-
-          <div class="posts__card">
-            <img
-              src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-              alt="Tullel with Morning Light"
-              class="posts__image"
-            />
-            <div class="posts__content">
-              <h2 class="posts__caption">Tunnel with morning light</h2>
-              <button type="button" class="posts__like-button"></button>
-            </div>
-          </div>
-          <div class="posts__card">
-            <img
-              src="images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="Mountain House"
-              class="posts__image"
-            />
-            <div class="posts__content">
-              <h2 class="posts__caption">Mountain house</h2>
-              <button type="button" class="posts__like-button"></button>
-            </div>
-          </div>
+          </template>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">2023 &copy; Spots</p>
       </footer>
-      <div class="modal modal_opened">
+
+      <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="submit" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form">
-            <label class="modal__label" for="name"
+            <label class="modal__label" for="profile-name-input"
               >Name
               <input
                 class="modal__input"
-                id="name"
+                id="profile-name-input"
                 type="text"
                 placeholder="Type your name"
               />
             </label>
 
-            <label class="modal__label" for="description"
+            <label class="modal__label" for="profile-description-input"
               >Description
               <input
                 class="modal__input"
-                id="description"
+                id="profile-description-input"
                 type="text"
                 placeholder="Type your name"
               />

@@ -24,3 +24,82 @@ const initialCards = [
     link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQtkilOXMdYmFr3u2G_ltfMBhzgdNNC-RhNw&s",
   },
 ];
+//selecting edit button and Modal
+const profileEditButton = document.querySelector(".profile__edit-btn");
+
+const editProfileModal = document.querySelector("#edit-profile-modal");
+
+//selecting profile name, descritpion, and both inputs for modal.
+const profileName = document.querySelector(".profile__name");
+
+const editModalNameInput = editProfileModal.querySelector(
+  "#profile-name-input"
+);
+
+const profileDescription = document.querySelector(".profile__description");
+
+const editModalDescriptionInput = editProfileModal.querySelector(
+  "#profile-description-input"
+);
+
+//selecting form element
+const editFormElement = editProfileModal.querySelector(".modal__form");
+
+//Selecting template and declaring it using JavaScript
+const cardTemplate = document.querySelector("#card-template");
+const postsCardList = document.querySelector(".posts");
+
+function getCardElement(data) {
+  console.log(data);
+  const cardElement = cardTemplate.content
+    .querySelector(".posts__card")
+    .cloneNode(true);
+
+  const cardNameEl = cardElement.querySelector(".posts__caption");
+  //select image element
+  const postsImage = (cardElement.querySelector("posts__image").src =
+    data.link);
+
+  cardNameEl.textContent = data.name;
+  //assign values to image src and alt attributes
+
+  //????????? How did we link data to the object array up top?
+
+  return cardElement;
+}
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  postsCardList.prepend(cardElement);
+}
+//is this how??
+
+//function for making modal visible, making input value change with profile name
+function openModal() {
+  editModalNameInput.value = profileName.textContent;
+  editModalDescriptionInput.value = profileDescription.textContent;
+  editProfileModal.classList.add("modal_opened");
+}
+
+//applying that function to a 'click'
+profileEditButton.addEventListener("click", openModal);
+
+// applying function, and adding event listener to close Modal
+const profileCloseButton = editProfileModal.querySelector(".modal__close-btn");
+
+function closeModal() {
+  editProfileModal.classList.remove("modal_opened");
+}
+
+profileCloseButton.addEventListener("click", closeModal);
+
+//function for submit event
+
+function handleEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = editModalNameInput.value;
+  profileDescription.textContent = editModalDescriptionInput.value;
+  closeModal();
+}
+
+editFormElement.addEventListener("submit", handleEditFormSubmit);
