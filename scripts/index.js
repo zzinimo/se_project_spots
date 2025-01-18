@@ -1,27 +1,31 @@
 const initialCards = [
   {
-    name: "Toyota Camry",
-    link: "https://pictures.dealer.com/a/autonationdrive/0846/65667807d383f66969470e467cf188ecx.jpg",
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
   {
-    name: "Lexus LS 460",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6e9PNwd7YSCqMQX0IhDhEw2kd5AaavietqQ&s",
+    name: "Val Thorens",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
   {
-    name: "Honda Accord",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgvSQV0-ZzBT7erg7gfYIHb7RvIk5zQ-4wZg&s",
+    name: "Restaurant terrace",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
   },
   {
-    name: "Jeep Grand Cherokee",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp7APF3F-v9ik-MomEpf_zYUs7hR7XwZF8PQ&s",
+    name: "An outdoor cafe",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
   },
   {
-    name: "Nissan Altima",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmPzUDuHS9N9j4zyXfu5GAX1BrfD0Ie1Q55Q&s",
+    name: "A very long bridge, over the forest and through the trees",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
   },
   {
-    name: "Ford Explorer",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQtkilOXMdYmFr3u2G_ltfMBhzgdNNC-RhNw&s",
+    name: "Tunnel with morning light",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
 //selecting edit button and Modal
@@ -51,8 +55,8 @@ const postsCardList = document.querySelector(".posts");
 
 function getCardElement(data) {
   console.log(data);
-  const cardElement = cardTemplate.content //What happens if I do not include content?
-    .querySelector(".posts__card") // Do I need to do this step, or can I ".cloneNode" cardTemplate?
+  const cardElement = cardTemplate.content
+    .querySelector(".posts__card")
     .cloneNode(true);
 
   const cardNameEl = cardElement.querySelector(".posts__caption");
@@ -62,18 +66,16 @@ function getCardElement(data) {
 
   cardNameEl.textContent = data.name;
   postsImage.src = data.link;
+  postsImage.alt = data.name;
   //assign values to image src and alt attributes
 
-  //????????? How did we link "data" to the object array called initial cards towards top?
-
-  return cardElement; //what does this do for cards?
+  return cardElement;
 }
 
 for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]); // We have already declared cardElement in the getCardElement function no?
+  const cardElement = getCardElement(initialCards[i]);
   postsCardList.prepend(cardElement);
 }
-//is this how?? ^
 
 //function for making modal visible, making input value change with profile name
 function openModal() {
