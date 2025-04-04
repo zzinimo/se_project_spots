@@ -24,6 +24,9 @@
   border-radius: 8px;
 }
 
+.posts__caption_container {
+}
+
 .posts__caption {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -125,5 +128,6 @@
   .posts__caption {
     font-size: 16px;
     line-height: 1;
+    max-width: 245px;
   }
 }

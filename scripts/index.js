@@ -36,7 +36,7 @@ const cardModalCloseButton = addCardModal.querySelector(".modal__close-btn");
 
 //selecting the card form within the modal and inputs
 
-const cardForm = addCardModal.querySelector(".modal__form");
+const cardForm = document.forms["add-card-form"];
 const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
 const cardLinkInput = addCardModal.querySelector("#add-card-link-input");
 
@@ -183,4 +183,7 @@ function handleAddCardSubmit(evt) {
   };
   const newCardElement = getCardElement(newInputValues);
   postsCardList.prepend(newCardElement);
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
+  closeModal(addCardModal);
 }
