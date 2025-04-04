@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   max-width: 413px;
+  position: relative;
 }
 
 .posts__image {
@@ -55,6 +56,35 @@
 
 .posts__like-button:hover {
   opacity: 0.4;
+  cursor: pointer;
+}
+
+.posts__like-button_liked {
+  background-image: url("../images/likeButtonLiked.svg");
+  opacity: 1;
+}
+
+.posts__like-button_liked:hover {
+  background-image: url("../images/likedButtonLikedAndHover.png");
+  z-index: 0;
+}
+
+.posts__delete-button {
+  background-image: url("../images/deleteDefault.png");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  object-fit: cover;
+  border: none;
+}
+
+.posts__delete-button:hover {
+  background-image: url("../images/deleteButtonHover.png");
   cursor: pointer;
 }
 
