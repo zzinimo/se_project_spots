@@ -1,0 +1,14 @@
+/* BACKGROUND color is FCF5E5 */
+
+.page {
+  background-color: #fcf5e5;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.page__section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
