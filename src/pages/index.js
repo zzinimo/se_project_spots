@@ -7,38 +7,40 @@ import {
   resetValidation,
 } from "../scripts/validation.js";
 
+import Api from "../utils/Api.js";
+
 let currentOpenModal = null;
 
-const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "179ea3eb-b9ec-4e4f-aa7b-a291d7daa8b7",
+    "Content-Type": "application/json",
   },
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+});
+
+//destructure the second callback in the callback of the .then()
+api
+  .getAppInfo()
+  .then(([cards]) => {
+    cards.forEach((card) => {
+      const cardElement = getCardElement(card);
+      postsCardList.prepend(cardElement);
+    });
+    api.getUserInfo().then((data) => {
+      //set the src of avatar image
+      const avatarImage = document.querySelector(".profile__avatar");
+      avatarImage.src = data.avatar;
+      //set the textContent of both text elements
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+    });
+
+    //Handle user's information
+  })
+  .catch(() => {
+    console.error(err);
+  });
 
 //selecting New Post button and declaring variable. Also delcaring addCardModal. and close button for modal
 const newPostButton = document.querySelector(".profile__add-btn");
@@ -127,11 +129,6 @@ function getCardElement(data) {
   });
   return cardElement;
 }
-
-initialCards.forEach((card) => {
-  const cardElement = getCardElement(card);
-  postsCardList.prepend(cardElement);
-});
 
 function openModal(modal) {
   currentOpenModal = modal; // Added this line
