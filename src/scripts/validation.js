@@ -60,13 +60,11 @@ export const toggleButtonState = (inputList, buttonElement, config) => {
 const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
-  // buttonElement.classList.add("modal__submit-btn_type_active");
 };
 
 const enableButton = (buttonElement, config) => {
   buttonElement.disabled = false;
   buttonElement.classList.remove(config.inactiveButtonClass);
-  // buttonElement.classList.remove("modal__submit-btn_type_active");
 };
 
 export const resetValidation = (formElement, inputList, config) => {

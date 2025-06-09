@@ -23,11 +23,21 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%= require('./images/avatar.jpg') %>"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img
+                src="<%= require('./images/profilePencil.svg') %>"
+                alt="Profile Picture Edit Button"
+                class="profile__pencil-icon"
+              />
+            </button>
+
+            <img
+              src="<%= require('./images/avatar.jpg') %>"
+              alt="Bessie Coleman"
+              class="profile__avatar"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -173,6 +183,66 @@
         ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <!-- Avatar Modal -->
+    <div class="modal" id="add-avatar-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close-btn"></button>
+        <h2 class="modal__title">Edit Profile Avatar</h2>
+        <form
+          name="edit-profile"
+          class="modal__form"
+          id="edit-avatar"
+          novalidate
+        >
+          <label class="modal__label" for="profile-avatar-input"
+            >Profile Picture
+            <input
+              class="modal__input"
+              id="profile-avatar-input"
+              name="avatar"
+              type="url"
+              placeholder="Avatar goes here"
+              required
+            />
+            <span class="modal__error" id="profile-avatar-input-error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- delete modal -->
+
+    <!-- todo - style modal -->
+    <!-- make invisible by default should appear when clicking delete card button -->
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close-btn"></button>
+        <h2 class="modal__title">
+          Are you sure you want to delete this card image?
+        </h2>
+        <form
+          name="edit-profile"
+          class="modal__form"
+          id="edit-avatar"
+          novalidate
+        >
+          <button
+            type="submit"
+            class="modal__submit-btn modal__submit-btn_type-delete"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="modal__submit-btn modal__submit-btn_type-cancel"
+          >
+            cancel
+          </button>
+        </form>
       </div>
     </div>
   </body>
