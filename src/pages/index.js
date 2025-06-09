@@ -37,7 +37,7 @@ api
       profileDescription.textContent = data.about;
     });
   })
-  .catch(() => {
+  .catch((err) => {
     console.error(err);
   });
 
@@ -93,8 +93,16 @@ const deleteCardMdodal = document.querySelector("#delete-modal");
 const deleteCardBtn = deleteCardMdodal.querySelector(
   ".modal__submit-btn_type-delete"
 );
+const cancelButton = deleteCardMdodal.querySelector(
+  ".modal__submit-btn_type-cancel"
+);
 
-let cardToDelete = null;
+cancelButton.addEventListener("click", () => {
+  closeModal(deleteCardMdodal);
+});
+
+let selectedCard;
+let selectedCardId;
 
 // avatar modal event listener
 editAvatarBtn.addEventListener("click", () => openModal(addAvatarModal));
@@ -126,6 +134,7 @@ function getCardElement(data) {
     .querySelector(".posts__card")
     .cloneNode(true);
 
+  cardElement.id = data._id;
   const cardNameEl = cardElement.querySelector(".posts__caption");
   //select image element
 
@@ -158,9 +167,10 @@ function getCardElement(data) {
   postsImage.alt = data.name;
 
   postDeleteBtn.addEventListener("click", (evt) => {
-    // cardElement.remove();
     openModal(deleteCardMdodal);
-    cardToDelete = evt.target.closest(".posts__card");
+    selectedCard = evt.target.closest(".posts__card");
+    selectedCardId = evt.target.closest(".posts__card").id;
+    console.log(selectedCardId);
   });
 
   return cardElement;
@@ -169,8 +179,15 @@ function getCardElement(data) {
 // delete card that trash icon was clicked on
 deleteCardBtn.addEventListener("click", (evt) => {
   evt.preventDefault();
-  cardToDelete.remove();
-  closeModal(deleteCardMdodal);
+  api
+    .deleteCard(selectedCardId)
+    .then((res) => {
+      selectedCard.remove();
+      closeModal(deleteCardMdodal);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
 function openModal(modal) {
@@ -249,15 +266,17 @@ newPostButton.addEventListener("click", function () {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const newInputValues = {
-    name: cardNameInput.value,
-    link: cardLinkInput.value,
-  };
-
-  const newCardElement = getCardElement(newInputValues);
-  postsCardList.prepend(newCardElement);
-  cardForm.reset();
-  closeModal(addCardModal);
+  api
+    .addCardInfo({ name: cardNameInput.value, link: cardLinkInput.value })
+    .then((res) => {
+      const cardElement = getCardElement(res);
+      postsCardList.prepend(cardElement);
+      cardForm.reset();
+      closeModal(addCardModal);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 const closeButtons = document.querySelectorAll(".modal__close-btn");

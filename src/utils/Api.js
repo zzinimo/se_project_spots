@@ -15,16 +15,15 @@ class Api {
       if (res.ok) {
         return res.json();
       } else {
-        Promise.reject(`Error: ${res.status}`);
+        return Promise.reject(`Error: ${res.status}`);
       }
     });
   }
 
   addCardInfo({ name, link }) {
-    return post("${this.baseUrl}/cards", {
-      method: POST,
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
       headers: this._headers,
-      "Content-Type": "application/json",
       body: JSON.stringify({
         name: name,
         link: link,
@@ -33,16 +32,16 @@ class Api {
       if (res.ok) {
         return res.json();
       } else {
-        Promise.reject(`${res.status}`);
+        return Promise.reject(`${res.status}`);
       }
     });
   }
 
+  //updating profile information
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
-      "Content-Type": "application/json",
       // Send the data in the body as a JSON string.
       body: JSON.stringify({
         name: name,
@@ -52,19 +51,7 @@ class Api {
       if (res.ok) {
         return res.json();
       } else {
-        Promise.reject(`${res.status}`);
-      }
-    });
-  }
-
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        Promise.reject(`${res.status}`);
+        return Promise.reject(`${res.status}`);
       }
     });
   }
@@ -81,7 +68,33 @@ class Api {
       if (res.ok) {
         return res.json();
       } else {
-        Promise.reject(`${res.status}`);
+        return Promise.reject(`${res.status}`);
+      }
+    });
+  }
+
+  //Get the current user’s info
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`${res.status}`);
+      }
+    });
+  }
+
+  deleteCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`${res.status}`);
       }
     });
   }
