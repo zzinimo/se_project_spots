@@ -142,8 +142,22 @@ function getCardElement(data) {
   const cardLikeBtn = cardElement.querySelector(".posts__like-button");
   const postDeleteBtn = cardElement.querySelector(".posts__delete-button");
 
-  cardLikeBtn.addEventListener("click", function () {
-    cardLikeBtn.classList.toggle("posts__like-button_liked");
+  data.isLiked
+    ? cardLikeBtn.classList.add("posts__like-button_liked")
+    : cardLikeBtn.classList.remove("posts__like-button_liked");
+
+  cardLikeBtn.addEventListener("click", (evt) => {
+    const isLiked = evt.target.classList.contains("posts__like-button_liked");
+    api
+      .changeLikeStatus(data._id, isLiked)
+      .then((res) => {
+        res.isLiked
+          ? cardLikeBtn.classList.add("posts__like-button_liked")
+          : cardLikeBtn.classList.remove("posts__like-button_liked");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   });
 
   postsImage.addEventListener("click", () => {
@@ -170,7 +184,6 @@ function getCardElement(data) {
     openModal(deleteCardMdodal);
     selectedCard = evt.target.closest(".posts__card");
     selectedCardId = evt.target.closest(".posts__card").id;
-    console.log(selectedCardId);
   });
 
   return cardElement;
