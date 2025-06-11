@@ -9,6 +9,8 @@ import {
 
 import Api from "../utils/Api.js";
 
+import { setButtonText } from "../utils/helpers.js";
+
 let currentOpenModal = null;
 
 const api = new Api({
@@ -192,6 +194,8 @@ function getCardElement(data) {
 // delete card that trash icon was clicked on
 deleteCardBtn.addEventListener("click", (evt) => {
   evt.preventDefault();
+  setButtonText(deleteCardBtn, true, undefined, "Deleting...");
+
   api
     .deleteCard(selectedCardId)
     .then((res) => {
@@ -200,6 +204,9 @@ deleteCardBtn.addEventListener("click", (evt) => {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(deleteCardBtn, false, "Delete");
     });
 });
 
@@ -250,6 +257,13 @@ profileCloseButton.addEventListener("click", function () {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+
+  //change text content to "saving..."
+  const submitButton = evt.submitter; // specifies the element that caused a form to be submitted.
+  // submitButton.textContent = "Saving...";
+  console.log(submitButton);
+  setButtonText(submitButton, true, undefined, "Saving...");
+
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -262,8 +276,13 @@ function handleEditFormSubmit(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
     });
 }
+
+//implement the loading text for all other form submissions.
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
@@ -279,6 +298,8 @@ newPostButton.addEventListener("click", function () {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, undefined, "Saving...");
   api
     .addCardInfo({ name: cardNameInput.value, link: cardLinkInput.value })
     .then((res) => {
@@ -289,6 +310,9 @@ function handleAddCardSubmit(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
     });
 }
 
