@@ -27,12 +27,11 @@ api
   .then(([cards]) => {
     cards.forEach((card) => {
       const cardElement = getCardElement(card);
-      postsCardList.prepend(cardElement);
+      postsCardList.append(cardElement);
     });
 
     api.getUserInfo().then((data) => {
       //set the src of avatar image
-      const avatarImage = document.querySelector(".profile__avatar");
       avatarImage.src = data.avatar;
       //set the textContent of both text elements
       profileName.textContent = data.name;
@@ -89,6 +88,8 @@ const previewCaption = previewModal.querySelector(".modal__caption");
 const addAvatarModal = document.querySelector("#add-avatar-modal"); //keep
 const editAvatarBtn = document.querySelector(".profile__avatar-btn"); //keep
 const avatarForm = document.querySelector("#edit-avatar");
+const avatarSubmitBtn = avatarForm.querySelector(".modal__submit-btn");
+
 const avatarInput = avatarForm.querySelector("#profile-avatar-input"); //delete or keep?
 
 const deleteCardMdodal = document.querySelector("#delete-modal");
@@ -98,6 +99,7 @@ const deleteCardBtn = deleteCardMdodal.querySelector(
 const cancelButton = deleteCardMdodal.querySelector(
   ".modal__submit-btn_type-cancel"
 );
+const avatarImage = document.querySelector(".profile__avatar");
 
 cancelButton.addEventListener("click", () => {
   closeModal(deleteCardMdodal);
@@ -107,26 +109,38 @@ let selectedCard;
 let selectedCardId;
 
 // avatar modal event listener
-editAvatarBtn.addEventListener("click", () => openModal(addAvatarModal));
+editAvatarBtn.addEventListener("click", () => {
+  openModal(addAvatarModal);
+  const inputList = Array.from(
+    avatarForm.querySelectorAll(setStings.inputSelector)
+  );
+  resetValidation(avatarForm, inputList, settings);
+  S;
+});
 
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 //todo finish avatar submission handler
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, undefined, "Saving...");
 
+  avatarSubmitBtn.setAttribute("disabled", true);
   api
     .editAvatarInfo({
       avatar: avatarInput.value,
     })
     .then((data) => {
-      const avatarImage = document.querySelector(".profile__avatar");
       avatarImage.src = data.avatar;
       closeModal(addAvatarModal);
       avatarForm.reset();
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
     });
 }
 
