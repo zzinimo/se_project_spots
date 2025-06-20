@@ -112,10 +112,9 @@ let selectedCardId;
 editAvatarBtn.addEventListener("click", () => {
   openModal(addAvatarModal);
   const inputList = Array.from(
-    avatarForm.querySelectorAll(setStings.inputSelector)
+    avatarForm.querySelectorAll(settings.inputSelector)
   );
   resetValidation(avatarForm, inputList, settings);
-  S;
 });
 
 avatarForm.addEventListener("submit", handleAvatarSubmit);
@@ -272,9 +271,7 @@ profileCloseButton.addEventListener("click", function () {
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
 
-  //change text content to "saving..."
   const submitButton = evt.submitter; // specifies the element that caused a form to be submitted.
-  // submitButton.textContent = "Saving...";
   console.log(submitButton);
   setButtonText(submitButton, true, undefined, "Saving...");
 
